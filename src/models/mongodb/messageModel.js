@@ -12,8 +12,10 @@ MessageModel.insert = messageObject => {
     return MessageModel.create(messageObject)
 }
 
-MessageModel.show = () =>{
-    return MessageMode.find({
-        date: { $gte: (Date.now()- 24 * 3.6 * 10**6) }
-    })
+MessageModel.getMessages = () =>{
+    return MessageModel.find({
+        date: { $gte: new Date(Date.now() - 24*3.6*10**6) }
+    }).lean()
 }
+
+module.exports = MessageModel

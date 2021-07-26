@@ -19,6 +19,8 @@ routes.put('/api/user/update', (req, res) =>{
 
 })
 
-routes.post('/api/messages/insert', messageController.insertMessage)
+routes.get('/api/message/get', messageController.showMessages)
+routes.post('/api/message/insert', messageController.insertMessage)
+
 
 module.exports = routes
