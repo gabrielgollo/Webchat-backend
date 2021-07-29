@@ -2,6 +2,7 @@ const express = require('express')
 const messageController = require('./controller/messageController')
 const routes = express.Router()
 
+const Auth = require('./middlewares/auth')
 
 routes.get('/', (req, res) => {
     res.send(`${Date.now()} -- Try other another route`)
@@ -19,8 +20,8 @@ routes.put('/api/user/update', (req, res) =>{
 
 })
 
-routes.get('/api/message/get', messageController.showMessages)
-routes.post('/api/message/insert', messageController.insertMessage)
+routes.get('/api/message/get', Auth.validateToken, messageController.showMessages)
+routes.post('/api/message/insert', Auth.validateToken, messageController.insertMessage)
 
 
 module.exports = routes

@@ -9,5 +9,5 @@ app.use(routes)
 
 
 app.listen(process.env.EXPRESS_PORT, () => {
-    console.log(`API is running on http://localhost:${process.env.EXPRESS_PORT}`)
+    console.log(`API webchat is running on http://localhost:${process.env.EXPRESS_PORT}`)
 })
